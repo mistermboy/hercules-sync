@@ -1,0 +1,671 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hercules synchronization module architecture &mdash; hercules_sync  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Documentation of the hercules_sync system" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hercules_sync
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hercules synchronization module architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-and-goals">Introduction and Goals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements-overview">Requirements Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quality-goals">Quality Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stakeholders">Stakeholders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-constraints">Architecture Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-scope-and-context">System Scope and Context</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#business-context">Business Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-context">Technical Context</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#solution-strategy">Solution Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-block-view">Building Block View</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#whitebox-hercules-sync">Whitebox hercules_sync</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rationale">Rationale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contained-blackboxes">Contained Blackboxes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#level-2">Level 2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#listener">Listener</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diff-processor">Diff Processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ontology-synchronizer">Ontology Synchronizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#triple-store-manager">Triple-Store Manager</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#runtime-view">Runtime View</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modify-an-ontology-file">Modify an ontology file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#direct-modification-of-the-triple-store">Direct modification of the triple store</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deployment-view">Deployment View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#technical-and-cross-cutting-concepts">Technical and Cross-cutting Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#technologies-used">Technologies used</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flask">Flask</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wikidataintegrator">WikidataIntegrator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest">Pytest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#travis">Travis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#codacy">Codacy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#continuous-integration">Continuous integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#style-guides">Style guides</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#design-decisions">Design Decisions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adapter-pattern-changing-the-triple-store-implementation">Adapter pattern: Changing the triple-store implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strategy-pattern-creating-and-using-multiple-synchronization-algorithms">Strategy pattern: Creating and using multiple synchronization algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quality-requirements">Quality Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quality-tree">Quality Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quality-scenarios">Quality Scenarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#risks-and-technical-debts">Risks and Technical Debts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tests">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#design-phase">Design phase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-phase">Implementation phase</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements-analysis">Requirements analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functional-requirements">Functional requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#non-functional-requirements">Non-functional requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#glossary">Glossary</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hercules_sync</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Hercules synchronization module architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/hercules_sync_doc.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hercules-synchronization-module-architecture">
+<h1>Hercules synchronization module architecture<a class="headerlink" href="#hercules-synchronization-module-architecture" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><strong>Note: WORK IN PROGRESS</strong> <br>
+This document is being updated in a weekly basis and is currently a work in progress.</p>
+</div></blockquote>
+<div class="section" id="introduction-and-goals">
+<h2>Introduction and Goals<a class="headerlink" href="#introduction-and-goals" title="Permalink to this headline">¶</a></h2>
+<p>This document includes the architectural documentation for the synchronization module - from now on called <em>hercules_sync</em> - between ontology files and a triple-store, whis is a part of the ontological infrastructure of Project Hércules.</p>
+<p>The structure of this document follows the <a class="reference external" href="https://arc42.org/">arc42</a> template for documentation of software and systems architectures.</p>
+<div class="section" id="requirements-overview">
+<h3>Requirements Overview<a class="headerlink" href="#requirements-overview" title="Permalink to this headline">¶</a></h3>
+<p>The overall goal of <em>hercules_sync</em> is to syncrhonize ontologies content between files hosted in a version control system and a triplestore where the content is stored.</p>
+<p>A more complete analysis of the system’s requirements can be found in the <strong>Requirements analysis</strong> section.</p>
+</div>
+<div class="section" id="quality-goals">
+<h3>Quality Goals<a class="headerlink" href="#quality-goals" title="Permalink to this headline">¶</a></h3>
+<p>In this section we will enumerate the top quality goals for the system’s architecture:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Priority</th>
+<th>Goal</th>
+<th>Scenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Consistency</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td> Flexibility</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Fault Tolerance</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="stakeholders">
+<h3>Stakeholders<a class="headerlink" href="#stakeholders" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Role/Name</th>
+<th>Description</th>
+<th>Expectations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Domain Experts</td>
+<td>User that modifies the content of the ontology through the user interface provided by the ontology publication service.</td>
+<td>When a change is made through the user interface, the content of the ontologies in the version control system should be consistent with these changes.</td>
+</tr>
+<tr>
+<td>Ontology Engineer</td>
+<td>User that modifies the content of the ontology directly from the version control system.</td>
+<td>Once a ontology file is modified, the changes should be reflected in the triplestore.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="architecture-constraints">
+<h2>Architecture Constraints<a class="headerlink" href="#architecture-constraints" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Contraint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">C1</td>
+<td>The system must be developed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0</a>.</td>
+</tr>
+<tr>
+<td align="center">C2</td>
+<td>The system must be platform-independent and should run on the major operating systems (Windows™, Linux, and Mac-OS™).</td>
+</tr>
+<tr>
+<td align="center">C3</td>
+<td>The system must be runnable from the command line.</td>
+</tr>
+<tr>
+<td align="center">C4</td>
+<td>The control versions system used to store the ontologies will be git based.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="system-scope-and-context">
+<h2>System Scope and Context<a class="headerlink" href="#system-scope-and-context" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="business-context">
+<h3>Business Context<a class="headerlink" href="#business-context" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="technical-context">
+<h3>Technical Context<a class="headerlink" href="#technical-context" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="solution-strategy">
+<h2>Solution Strategy<a class="headerlink" href="#solution-strategy" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Use</p></li>
+</ul>
+</div>
+<div class="section" id="building-block-view">
+<h2>Building Block View<a class="headerlink" href="#building-block-view" title="Permalink to this headline">¶</a></h2>
+<p>The following diagram shows the static decomposition of the system into building blocks:</p>
+<p><img alt="_images/herc_sync_bbview.png" src="_images/herc_sync_bbview.png" /></p>
+<div class="section" id="whitebox-hercules-sync">
+<h3>Whitebox hercules_sync<a class="headerlink" href="#whitebox-hercules-sync" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="rationale">
+<h4>Rationale<a class="headerlink" href="#rationale" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="contained-blackboxes">
+<h4>Contained Blackboxes<a class="headerlink" href="#contained-blackboxes" title="Permalink to this headline">¶</a></h4>
+<p>Los componentes e interfaces detectados son los siguientes:</p>
+<ul class="simple">
+<li><p>listener: Este componente es el punto de entrada al subsistema por parte de otros sistemas externos. Para ello ofrece una interfaz al exterior, llamada OnWebhook, que es la encargada de recibir los datos sobre las actualizaciones de las ontologías por parte del CVS.</p></li>
+<li><p>ontology_synchronizer: Este componente realiza la sincronización de los cambios recibidos, creando operaciones a realizar en el triple_store para reflejar estos cambios. Ofrece una interfaz llamada <em>SynchronizeOntologies</em>, que es utilizada por el componente listener para sincronizar los cambios recibidos.</p></li>
+<li><p>diff_parser: El componente <em>diff_parser</em> se encarga de procesar la información del diff de los ficheros típica de los sistemas de control de versiones basados en Git. Ofrece una interfaz <em>ParseDiff</em>, que es utilizada por el componente <em>ontology_synchronizer</em> para obtener información detallada sobre los cambios en los ficheros de ontologías.</p></li>
+<li><p>triplestore_manager: Por último, el componente <em>triplestore_manager</em> se encarga de ejecutar las operaciones recibidas del componente <em>ontology_synchronizer</em> sobre el triple-store elegido. Para ello ofrece el interfaz <em>ExecuteModification</em>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="level-2">
+<h3>Level 2<a class="headerlink" href="#level-2" title="Permalink to this headline">¶</a></h3>
+<p>In this level we will detail each one of the previous building blocks of the system identified in level 1.</p>
+<blockquote>
+<div><p><strong>Python singularities</strong>. <br>
+Since Python is a dynamically typed language that lacks some of the constructs of other programming languages, such as Interfaces, we will be making the following distinctions in the UML diagrams:</p>
+<ul class="simple">
+<li><p>Python modules which are just composed of functions, and do not have any classes inside, will be treated as static classes in the UML diagrams.</p></li>
+<li><p>Since access modifiers don’t exist in Python, we used the convention that underscored fields and funtions are considered private. These items will be shown as private in the UML diagrams.</p></li>
+<li><p>Since there are no interfaces in Python, we will represent as an interface abstract classes that do not have any field or implemented method.</p></li>
+<li><p>Multiple inheritance is possible in Python, so there could be cases in the UML diagrams where a class extends multiple classes.</p></li>
+</ul>
+<p>Also, it’s important to note that Python relies in duck typing rather than in implementation of interfaces. However, we still opted to create ”pseudo-interfaces” (abstract classes with no fields or imple- mented methods) and extend them by other classes. This was done in order to specify explicitly that a class followed a given interface, rather than implicitly by checking at the methods that it provides internally.</p>
+</div></blockquote>
+<div class="section" id="listener">
+<h4>Listener<a class="headerlink" href="#listener" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Listener: The listener class initializes a flask server through the AppFactory, and establishes the entrypoint where information about the ontologies’ updates will be received.</p></li>
+<li><p>Webhook: This class manages the communication with the control version system through Webhooks (for more information about webhooks, see https://developer.github.com/webhooks/) in a safe manner with the use of RSA keys.</p></li>
+<li><p>AppFactory: Factory class that creates the Flask application given a specific server configuration.</p></li>
+<li><p>Config: Configuration class to be used by the server.</p></li>
+</ul>
+<p><img alt="_images/herc_sync_listener_classes.png" src="_images/herc_sync_listener_classes.png" /></p>
+</div>
+<div class="section" id="diff-processor">
+<h4>Diff Processor<a class="headerlink" href="#diff-processor" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>PushEventHandler: Main class used by the listener to process all the received information about incoming changes from the ontologies.</p></li>
+<li><p>PushInfo: Information about the data received from the control version system.</p></li>
+<li><p>GitDiffParser: This class is in charge of parsing the diff about each file changed and return the lines that were modified in each file.</p></li>
+<li><p>GitDataLoader: The GitDataLoader class will download the content of each file before and after the modifications were done.</p></li>
+<li><p>GitFile: Wrapper which stores the content of a modified file before and after the modification, as well as other metadata about the file.</p></li>
+</ul>
+<p><img alt="_images/herc_sync_diff_parser_classes.png" src="_images/herc_sync_diff_parser_classes.png" /></p>
+</div>
+<div class="section" id="ontology-synchronizer">
+<h4>Ontology Synchronizer<a class="headerlink" href="#ontology-synchronizer" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>OntologySynchronizer: This class receives the synchronization algorithm to be used and returns a list of operations to perform on the triple-store to reflect the current modifications from the ontology files.</p></li>
+<li><p>SyncAlgorithm: Interface to be implemented by each one of the synchronization algorithms. These algorithms receive the modified lines from each file and return the list of operations to be made.</p></li>
+<li><p>NaiveSync: Simple synchronization algorithms that overwrites the content of the triple-store to be consistent with the current state of the ontology files.</p></li>
+<li><p>RDFSync: <a class="reference external" href="https://link.springer.com/content/pdf/10.1007%2F978-3-540-76298-0_39.pdf">RDFSync</a> algorithm for the synchronization of RDF files.</p></li>
+<li><p>SyncOperation: Abstract class that represents the operation to be made in the triple-store.</p></li>
+</ul>
+<p><img alt="_images/herc_sync_ontologies_synchronizer_classes.png" src="_images/herc_sync_ontologies_synchronizer_classes.png" /></p>
+</div>
+<div class="section" id="triple-store-manager">
+<h4>Triple-Store Manager<a class="headerlink" href="#triple-store-manager" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>TripleStoreManager: Interface to be implemented by each one of the adapters that will connect to a specific triple-store.</p></li>
+<li><p>WikibaseAdapter: Adapter that connects to a BlazeGraph triple-store configured in a wikibase instance.</p></li>
+<li><p>ModificationResult: Class which encapsulates the result of a modification performed on a triple-store.</p></li>
+</ul>
+<p><img alt="_images/herc_sync_triplestore_manager_classes.png" src="_images/herc_sync_triplestore_manager_classes.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="runtime-view">
+<h2>Runtime View<a class="headerlink" href="#runtime-view" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modify-an-ontology-file">
+<h3>Modify an ontology file<a class="headerlink" href="#modify-an-ontology-file" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="direct-modification-of-the-triple-store">
+<h3>Direct modification of the triple store<a class="headerlink" href="#direct-modification-of-the-triple-store" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="deployment-view">
+<h2>Deployment View<a class="headerlink" href="#deployment-view" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="technical-and-cross-cutting-concepts">
+<h2>Technical and Cross-cutting Concepts<a class="headerlink" href="#technical-and-cross-cutting-concepts" title="Permalink to this headline">¶</a></h2>
+<p>In this section we will</p>
+<div class="section" id="technologies-used">
+<h3>Technologies used<a class="headerlink" href="#technologies-used" title="Permalink to this headline">¶</a></h3>
+<p>The following technologies have been used in the development of the system.</p>
+<div class="section" id="python">
+<h4>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h4>
+<p>The main programming language used for the module implementation is <a class="reference external" href="https://www.python.org">Python</a>. Python is a interpreted, high level and general purpose language designed by Guido van Rossum in 1991. It is characterized by its legible syntax and dynamic typing.</p>
+<p>Python was chosen for the implementation of this module since it provides a wide ecosystem of libraries that allow working with ontologies and triple stores compared to other languages.</p>
+<p>This module will have compatibility with Python 3. Since January 1st of 2020 the end of cycle of Python 2 was announced, and Python 3 is the current maintained version.</p>
+</div>
+<div class="section" id="flask">
+<h4>Flask<a class="headerlink" href="#flask" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://palletsprojects.com/p/flask/">Flask</a> is a web microframework based on the <a class="reference external" href="https://wsgi.readthedocs.io/en/latest/">WSGI</a> standard which focuses on flexibility and efficiency.</p>
+<p>Flask will be used in <em>hercules_sync</em> to launch a web server that will listen to ontology updates coming from the control version system.</p>
+</div>
+<div class="section" id="wikidataintegrator">
+<h4>WikidataIntegrator<a class="headerlink" href="#wikidataintegrator" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://github.com/SuLab/WikidataIntegrator">WikidataIntegrator</a> is a library that allows the creation and querying of entity data on a wikibase instance through the <a class="reference external" href="https://www.mediawiki.org/wiki/API:Main_page">MediaWiki API</a>.</p>
+<p>This library is used to reflect the modifications — in the triple store.</p>
+<p>Esta librería es utilizada para introducir las modificaciones que se hayan producido en las ontologías en la instancia de Wikibase donde se encuentra el triple-store.</p>
+</div>
+<div class="section" id="pytest">
+<h4>Pytest<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h4>
+<p>Pytest es un framework que facilita la implementación de pruebas con Python. Puede ser utilizado tanto para escribir pruebas sencillas, como para realizar pruebas funcionales más complejas. Las librerías de pruebas que vienen por defecto en el lenguaje, como unittest y doctest, pueden ser facilmente integradas con pytest.</p>
+</div>
+<div class="section" id="travis">
+<h4>Travis<a class="headerlink" href="#travis" title="Permalink to this headline">¶</a></h4>
+<p>Travis es un servicio de integración continua que puede ser usado para monitorizar y probar proyectos alojados en GitHub.</p>
+</div>
+<div class="section" id="codacy">
+<h4>Codacy<a class="headerlink" href="#codacy" title="Permalink to this headline">¶</a></h4>
+<p>Codacy es una herramienta de análisis de código estática que permite la monitorización de calidad de proyectos, con soporte para múltiples lenguajes de programación. Devuelve varias métricas de calidad, como por ejemplo la seguridad, compatibilidad, rendimiento o estilo de código.</p>
+</div>
+</div>
+<div class="section" id="continuous-integration">
+<h3>Continuous integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h3>
+<p>In the module repository we follow continuous integration practices in order to fulfill some of the non-functional requirements that need to be met. Before a new version of the module is pushed to the repository, a Travis build is launched where all the tests are executed. In order to be able to upload new changes to the master branch all tests need to pass, and both code coverage and quality returned by Codecov and Codacy must not drop below a given threshold.</p>
+</div>
+<div class="section" id="style-guides">
+<h3>Style guides<a class="headerlink" href="#style-guides" title="Permalink to this headline">¶</a></h3>
+<p>The main coding standard that was followed was the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a> Python style guide. This standard specifies how code written in Python should be formatted (number of characters per line, import formats…) and is widely adopted in the community.</p>
+<p>In order to document the code there are also several formatting styles that can be used. In our case, we opted to use the <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpy docstring style</a> due to the readability it provides when compared to other alternatives.</p>
+</div>
+</div>
+<div class="section" id="design-decisions">
+<h2>Design Decisions<a class="headerlink" href="#design-decisions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="adapter-pattern-changing-the-triple-store-implementation">
+<h3>Adapter pattern: Changing the triple-store implementation<a class="headerlink" href="#adapter-pattern-changing-the-triple-store-implementation" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="strategy-pattern-creating-and-using-multiple-synchronization-algorithms">
+<h3>Strategy pattern: Creating and using multiple synchronization algorithms<a class="headerlink" href="#strategy-pattern-creating-and-using-multiple-synchronization-algorithms" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="quality-requirements">
+<h2>Quality Requirements<a class="headerlink" href="#quality-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="quality-tree">
+<h3>Quality Tree<a class="headerlink" href="#quality-tree" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="quality-scenarios">
+<h3>Quality Scenarios<a class="headerlink" href="#quality-scenarios" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="risks-and-technical-debts">
+<h2>Risks and Technical Debts<a class="headerlink" href="#risks-and-technical-debts" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="design-phase">
+<h3>Design phase<a class="headerlink" href="#design-phase" title="Permalink to this headline">¶</a></h3>
+<p>In order to test this module the following techniques will be used:</p>
+<ul class="simple">
+<li><p>Static techniques:</p>
+<ul>
+<li><p>Static code analysis tools.</p></li>
+</ul>
+</li>
+<li><p>Dynamic techniques:</p>
+<ul>
+<li><p>Specification-based, with equivalence class partitioning.</p></li>
+</ul>
+</li>
+</ul>
+<p>These techniques were selected mainly due to the nature of the system (there is no graphical interface, so other static techniques were more difficult to use) and also due to the experience of the development team testing related systems (experience based techniques were not appropriate for this context).</p>
+<p>The following test levels will be automatised and documented for this system:</p>
+<ul class="simple">
+<li><p>Unit and component tests.</p></li>
+<li><p>Integration tests.</p></li>
+</ul>
+</div>
+<div class="section" id="implementation-phase">
+<h3>Implementation phase<a class="headerlink" href="#implementation-phase" title="Permalink to this headline">¶</a></h3>
+<p>All the tests that will be implemented, as well as their respective results will be added to this section as the development of the system goes forward.</p>
+</div>
+</div>
+<div class="section" id="requirements-analysis">
+<h2>Requirements analysis<a class="headerlink" href="#requirements-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functional-requirements">
+<h3>Functional requirements<a class="headerlink" href="#functional-requirements" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">FR1</td>
+<td align="left">The system will establish an entry point where the information about the updates of the ontologies will be received.</td>
+</tr>
+<tr>
+<td align="center">FR2</td>
+<td align="left">The system will process the information received from the Control Version System with respect to the updates in the ontologies.</td>
+</tr>
+<tr>
+<td align="center">FR3</td>
+<td align="left">The system will detect the modifications to perform in the triplestore based on the information about the updates previously processed.</td>
+</tr>
+<tr>
+<td align="center">FR4</td>
+<td align="left">The system will connect to a triplestore to reflect the changes from the ontologies.</td>
+</tr>
+<tr>
+<td align="center">FR5</td>
+<td align="left">The system will also execute the inverse synchronization: from changes made in the triplestore to the ontology files.</td>
+</tr>
+<tr>
+<td align="center">FR6</td>
+<td align="left">The system will use logging tools to detect anomalies in its internal functioning.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="non-functional-requirements">
+<h3>Non-functional requirements<a class="headerlink" href="#non-functional-requirements" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">NFR1</td>
+<td align="left">Security: The system will receive update notifications from the CVS in a safe way with the use of RSA keys.</td>
+</tr>
+<tr>
+<td align="center">NFR2</td>
+<td align="left">Security: The system will use the OAuth protocol to update the triplestore.</td>
+</tr>
+<tr>
+<td align="center">NFR3</td>
+<td align="left">Compatibility: The system will be at least compatible with versions 3.6, 3.7 and 3.8 of the Python programming language.</td>
+</tr>
+<tr>
+<td align="center">NFR4</td>
+<td align="left">Mantenibility: The implementation of the system will follow the PEP8 standard.</td>
+</tr>
+<tr>
+<td align="center">NFR5</td>
+<td align="left">Quality: Code coverage of each new released version will be at least 90%.</td>
+</tr>
+<tr>
+<td align="center">NFR6</td>
+<td align="left">Extensibility: The system will facilitate the use of different triplestores where the ontologies can be stored.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">OAuth</td>
+<td>Authorization protocol that describes how unrelated servers can safely allow authorized access between them.</td>
+</tr>
+<tr>
+<td align="left">RSA</td>
+<td>Public-key cryptosystem used for secure data transmission.</td>
+</tr>
+<tr>
+<td align="left">Triplestore</td>
+<td>Specific type of database designed for the storage and retrieval of triples with the use of semantic queries.</td>
+</tr>
+<tr>
+<td align="left">Version Control System</td>
+<td>Software tool that helps a software team with the management of changes to source code.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Documentation of the hercules_sync system" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Web Semantics Oviedo
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
