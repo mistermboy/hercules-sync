@@ -171,7 +171,7 @@
 <span class="sd">        Data obtained from a GitHub WebHook regarding a push event.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">oauth</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">before_commit</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;before&#39;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">after_commit</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;after&#39;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">repo_name</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;repository&#39;</span><span class="p">][</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span>
@@ -181,7 +181,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">diff_parser</span><span class="o">.</span><span class="n">load_diff</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data_loader</span> <span class="o">=</span> <span class="n">GitDataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">repo_name</span><span class="p">,</span>
                                          <span class="bp">self</span><span class="o">.</span><span class="n">before_commit</span><span class="p">,</span>
-                                         <span class="bp">self</span><span class="o">.</span><span class="n">after_commit</span><span class="p">)</span>
+                                         <span class="bp">self</span><span class="o">.</span><span class="n">after_commit</span><span class="p">,</span>
+                                         <span class="n">oauth</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">added_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -362,10 +363,11 @@
     <span class="n">NO_COMMIT_MSG</span> <span class="o">=</span> <span class="s2">&quot;No commit found for the ref&quot;</span>
     <span class="n">NOT_FOUND_MSG</span> <span class="o">=</span> <span class="s2">&quot;Not Found&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repo_name</span><span class="p">,</span> <span class="n">before_ref</span><span class="p">,</span> <span class="n">after_ref</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repo_name</span><span class="p">,</span> <span class="n">before_ref</span><span class="p">,</span> <span class="n">after_ref</span><span class="p">,</span> <span class="n">oauth</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">repo_name</span> <span class="o">=</span> <span class="n">repo_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">before_ref</span> <span class="o">=</span> <span class="n">before_ref</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">after_ref</span> <span class="o">=</span> <span class="n">after_ref</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oauth</span> <span class="o">=</span> <span class="n">oauth</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">http</span> <span class="o">=</span> <span class="n">urllib3</span><span class="o">.</span><span class="n">PoolManager</span><span class="p">()</span>
 
 <div class="viewcode-block" id="GitDataLoader.load_files"><a class="viewcode-back" href="../../sphinx/hercules_sync.html#hercules_sync.git.GitDataLoader.load_files">[docs]</a>    <span class="k">def</span> <span class="nf">load_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">files_to_load</span><span class="p">):</span>
@@ -415,7 +417,8 @@
             <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
             <span class="n">url</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
-                <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="n">USER_AGENT</span>
+                <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="n">USER_AGENT</span><span class="p">,</span>
+                <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;token </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">oauth</span><span class="si">}</span><span class="s1">&#39;</span>
             <span class="p">}</span>
         <span class="p">)</span></div>
 

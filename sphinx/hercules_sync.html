@@ -163,7 +163,7 @@
 
 <dl class="class">
 <dt id="hercules_sync.git.GitDataLoader">
-<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.git.</code><code class="sig-name descname">GitDataLoader</code><span class="sig-paren">(</span><em class="sig-param">repo_name</em>, <em class="sig-param">before_ref</em>, <em class="sig-param">after_ref</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/git.html#GitDataLoader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.git.GitDataLoader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.git.</code><code class="sig-name descname">GitDataLoader</code><span class="sig-paren">(</span><em class="sig-param">repo_name</em>, <em class="sig-param">before_ref</em>, <em class="sig-param">after_ref</em>, <em class="sig-param">oauth=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/git.html#GitDataLoader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.git.GitDataLoader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Downloads github files from a commit, before and after a push.</p>
 <p>This class is used to download files from a github repository given a certain
@@ -285,7 +285,7 @@ form ‘user_name/repo_name’).</p></li>
 
 <dl class="class">
 <dt id="hercules_sync.git.GitPushEventHandler">
-<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.git.</code><code class="sig-name descname">GitPushEventHandler</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/git.html#GitPushEventHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.git.GitPushEventHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.git.</code><code class="sig-name descname">GitPushEventHandler</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">oauth=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/git.html#GitPushEventHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.git.GitPushEventHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Processes information from a GitHub push event.</p>
 <dl class="field-list simple">
