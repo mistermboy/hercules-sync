@@ -124,6 +124,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#continuous-integration">Continuous integration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#style-guides">Style guides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-dependencies">Other dependencies</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#design-decisions">Design Decisions</a><ul>
@@ -476,8 +477,10 @@ Since Python is a dynamically typed language that lacks some of the constructs o
 <h3>Style guides<a class="headerlink" href="#style-guides" title="Permalink to this headline">¶</a></h3>
 <p>The main coding standard that was followed was the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a> Python style guide. This standard specifies how code written in Python should be formatted (number of characters per line, import formats…) and is widely adopted in the community.</p>
 <p>In order to document the code there are also several formatting styles that can be used. In our case, we opted to use the <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpy docstring style</a> due to the readability it provides when compared to other alternatives.</p>
-<p>### Other dependencies
-Additional dependencies of the project are stored in the <a class="reference external" href="https://github.com/HerculesCRUE/ib-hercules-sync/blob/master/requirements.txt">requirements.txt file</a> from the herc_sync repository.</p>
+</div>
+<div class="section" id="other-dependencies">
+<h3>Other dependencies<a class="headerlink" href="#other-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>Additional dependencies of the project are stored in the <a class="reference external" href="https://github.com/HerculesCRUE/ib-hercules-sync/blob/master/requirements.txt">requirements.txt file</a> from the herc_sync repository.</p>
 </div>
 </div>
 <div class="section" id="design-decisions">
@@ -769,7 +772,7 @@ Con esto ya habremos configurado nuestro repositorio para mandar los eventos de 
 <div class="section" id="defining-a-webhook-in-the-source-repo">
 <h4>Defining a webhook in the source repo<a class="headerlink" href="#defining-a-webhook-in-the-source-repo" title="Permalink to this headline">¶</a></h4>
 <p>In order to perform the synchronization automatically, a webhook must be created in the original repository where the ontology is stored. This webhook will be launched whenever a new push event occurs in the repo, and the synchronization service will be called to sync the changes with the wikibase instance. When creating a new webhook, the payload url must point to the URL where this server will be available. It is also important to define a secret key that will be used to accept only requests from the source repo and not from other ones. An example configuration will look like this one:
-<img alt="docs/images/webhook_example.png" src="docs/images/webhook_example.png" /></p>
+<img alt="_images/webhook_example.png" src="_images/webhook_example.png" /></p>
 </div>
 </div>
 <div class="section" id="launching-the-app-with-docker">
