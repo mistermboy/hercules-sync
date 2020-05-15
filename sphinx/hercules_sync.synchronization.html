@@ -1,0 +1,964 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>hercules_sync.synchronization package &mdash; hercules_sync  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> hercules_sync
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../hercules_sync_doc.html">Hercules synchronization module architecture</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hercules_sync</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>hercules_sync.synchronization package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/sphinx/hercules_sync.synchronization.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hercules-sync-synchronization-package">
+<h1>hercules_sync.synchronization package<a class="headerlink" href="#hercules-sync-synchronization-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-hercules_sync.synchronization.algorithms">
+<span id="hercules-sync-synchronization-algorithms-module"></span><h2>hercules_sync.synchronization.algorithms module<a class="headerlink" href="#module-hercules_sync.synchronization.algorithms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.algorithms.</code><code class="sig-name descname">BaseSyncAlgorithm</code><a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#BaseSyncAlgorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Base class for all synchronization algorithms.</p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm.do_algorithm">
+<em class="property">abstract </em><code class="sig-name descname">do_algorithm</code><span class="sig-paren">(</span><em class="sig-param">file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#BaseSyncAlgorithm.do_algorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm.do_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute internal algorithm and return the list of operations to execute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<cite>obj</cite>:GitFile) – GitFile object with information about the diff.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of operations that need to be executed to synchronize the file
+with the triplestore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">SyncOperation</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.algorithms.</code><code class="sig-name descname">GraphDiffSyncAlgorithm</code><a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#GraphDiffSyncAlgorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm" title="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.synchronization.algorithms.BaseSyncAlgorithm</span></code></a></p>
+<p>Implementation of the Graph diff algorithm to synchronize ontology sources.</p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._create_add_ops_from">
+<code class="sig-name descname">_create_add_ops_from</code><span class="sig-paren">(</span><em class="sig-param">graph: rdflib.graph.Graph</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.AdditionOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#GraphDiffSyncAlgorithm._create_add_ops_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._create_add_ops_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._create_remove_ops_from">
+<code class="sig-name descname">_create_remove_ops_from</code><span class="sig-paren">(</span><em class="sig-param">graph: rdflib.graph.Graph</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.RemovalOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#GraphDiffSyncAlgorithm._create_remove_ops_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._create_remove_ops_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm.do_algorithm">
+<code class="sig-name descname">do_algorithm</code><span class="sig-paren">(</span><em class="sig-param">file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#GraphDiffSyncAlgorithm.do_algorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm.do_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute internal algorithm and return the list of operations to execute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<cite>obj</cite>:GitFile) – GitFile object with information about the diff.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of operations that need to be executed to synchronize the file
+with the triplestore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">SyncOperation</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.algorithms.</code><code class="sig-name descname">NaiveSyncAlgorithm</code><a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#NaiveSyncAlgorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm" title="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.synchronization.algorithms.BaseSyncAlgorithm</span></code></a></p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm.do_algorithm">
+<code class="sig-name descname">do_algorithm</code><span class="sig-paren">(</span><em class="sig-param">file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#NaiveSyncAlgorithm.do_algorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm.do_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute internal algorithm and return the list of operations to execute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<cite>obj</cite>:GitFile) – GitFile object with information about the diff.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of operations that need to be executed to synchronize the file
+with the triplestore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">SyncOperation</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.algorithms.RDFSyncAlgorithm">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.algorithms.</code><code class="sig-name descname">RDFSyncAlgorithm</code><a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#RDFSyncAlgorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.algorithms.RDFSyncAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm" title="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.synchronization.algorithms.BaseSyncAlgorithm</span></code></a></p>
+<p>Implementation of the RDFSync algorithm to synchronize ontology sources.</p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.RDFSyncAlgorithm._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.RDFSyncAlgorithm._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.RDFSyncAlgorithm._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.RDFSyncAlgorithm._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.RDFSyncAlgorithm._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.RDFSyncAlgorithm._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.algorithms.RDFSyncAlgorithm._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.algorithms.RDFSyncAlgorithm._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.algorithms.RDFSyncAlgorithm.do_algorithm">
+<code class="sig-name descname">do_algorithm</code><span class="sig-paren">(</span><em class="sig-param">file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#RDFSyncAlgorithm.do_algorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.algorithms.RDFSyncAlgorithm.do_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute internal algorithm and return the list of operations to execute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<cite>obj</cite>:GitFile) – GitFile object with information about the diff.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of operations that need to be executed to synchronize the file
+with the triplestore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">SyncOperation</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-hercules_sync.synchronization.ontology_synchronizer">
+<span id="hercules-sync-synchronization-ontology-synchronizer-module"></span><h2>hercules_sync.synchronization.ontology_synchronizer module<a class="headerlink" href="#module-hercules_sync.synchronization.ontology_synchronizer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hercules_sync.synchronization.ontology_synchronizer.OntologySynchronizer">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.ontology_synchronizer.</code><code class="sig-name descname">OntologySynchronizer</code><span class="sig-paren">(</span><em class="sig-param">algorithm: hercules_sync.synchronization.algorithms.BaseSyncAlgorithm</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#OntologySynchronizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.ontology_synchronizer.OntologySynchronizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Processes information from a GitHub push event.</p>
+<p>This class uses a syncrhonization algorithm to return the list of operations
+that need to be execute to synchronize a GitFile and a given triplestore.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>algoritm</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseSyncAlgorithm</span></code>) – Algorithm that conforms to the BaseSyncAlgorithm interface.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="hercules_sync.synchronization.ontology_synchronizer.OntologySynchronizer._annotate_triples">
+<code class="sig-name descname">_annotate_triples</code><span class="sig-paren">(</span><em class="sig-param">ops: List[hercules_sync.synchronization.operations.SyncOperation], file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#OntologySynchronizer._annotate_triples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.ontology_synchronizer.OntologySynchronizer._annotate_triples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.ontology_synchronizer.OntologySynchronizer.synchronize">
+<code class="sig-name descname">synchronize</code><span class="sig-paren">(</span><em class="sig-param">file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#OntologySynchronizer.synchronize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.ontology_synchronizer.OntologySynchronizer.synchronize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the algorithm to obtain the list of operations to execute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">GitFile</span></code>) – GitFile object with information about the ontology file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of operations that need to be executed to synchronize the file
+with the triplestore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">SyncOperation</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="hercules_sync.synchronization.ontology_synchronizer._annotate_datatype_props">
+<code class="sig-prename descclassname">hercules_sync.synchronization.ontology_synchronizer.</code><code class="sig-name descname">_annotate_datatype_props</code><span class="sig-paren">(</span><em class="sig-param">all_urielements</em>, <em class="sig-param">source_model</em>, <em class="sig-param">target_model</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#_annotate_datatype_props"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.ontology_synchronizer._annotate_datatype_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="hercules_sync.synchronization.ontology_synchronizer._annotate_object_props">
+<code class="sig-prename descclassname">hercules_sync.synchronization.ontology_synchronizer.</code><code class="sig-name descname">_annotate_object_props</code><span class="sig-paren">(</span><em class="sig-param">all_urielements: List[hercules_sync.triplestore.triple_info.URIElement], source_model, target_model</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#_annotate_object_props"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.ontology_synchronizer._annotate_object_props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="hercules_sync.synchronization.ontology_synchronizer._annotate_uris_etype">
+<code class="sig-prename descclassname">hercules_sync.synchronization.ontology_synchronizer.</code><code class="sig-name descname">_annotate_uris_etype</code><span class="sig-paren">(</span><em class="sig-param">all_urielements: List[hercules_sync.triplestore.triple_info.URIElement], source_model, target_model</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#_annotate_uris_etype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.ontology_synchronizer._annotate_uris_etype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="hercules_sync.synchronization.ontology_synchronizer._extract_uris_from">
+<code class="sig-prename descclassname">hercules_sync.synchronization.ontology_synchronizer.</code><code class="sig-name descname">_extract_uris_from</code><span class="sig-paren">(</span><em class="sig-param">ops: List[hercules_sync.synchronization.operations.SyncOperation]</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.triplestore.triple_info.URIElement]<a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#_extract_uris_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.ontology_synchronizer._extract_uris_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="hercules_sync.synchronization.ontology_synchronizer._filter_invalid_ops">
+<code class="sig-prename descclassname">hercules_sync.synchronization.ontology_synchronizer.</code><code class="sig-name descname">_filter_invalid_ops</code><span class="sig-paren">(</span><em class="sig-param">ops: List[hercules_sync.synchronization.operations.SyncOperation]</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#_filter_invalid_ops"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.ontology_synchronizer._filter_invalid_ops" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-hercules_sync.synchronization.operations">
+<span id="hercules-sync-synchronization-operations-module"></span><h2>hercules_sync.synchronization.operations module<a class="headerlink" href="#module-hercules_sync.synchronization.operations" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hercules_sync.synchronization.operations.AdditionOperation">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.operations.</code><code class="sig-name descname">AdditionOperation</code><span class="sig-paren">(</span><em class="sig-param">sub: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">pred: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">obj: hercules_sync.triplestore.triple_info.TripleElement</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#AdditionOperation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.operations.AdditionOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.synchronization.operations.SyncOperation" title="hercules_sync.synchronization.operations.SyncOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.synchronization.operations.SyncOperation</span></code></a></p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.AdditionOperation._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.operations.AdditionOperation._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.AdditionOperation._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.operations.AdditionOperation._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.AdditionOperation._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.operations.AdditionOperation._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.AdditionOperation._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.operations.AdditionOperation._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.operations.AdditionOperation.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">triple_store: hercules_sync.triplestore.triplestore_manager.TripleStoreManager</em><span class="sig-paren">)</span> &#x2192; hercules_sync.triplestore.triplestore_manager.ModificationResult<a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#AdditionOperation.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.operations.AdditionOperation.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the operation in the given triple store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triple_store</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">TripleStoreManager</span></code>) – Instance of triple store manager</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result given by the TripleStoreManager after the modification.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>obj: <cite>ModificationResult</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.operations.RemovalOperation">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.operations.</code><code class="sig-name descname">RemovalOperation</code><span class="sig-paren">(</span><em class="sig-param">sub: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">pred: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">obj: hercules_sync.triplestore.triple_info.TripleElement</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#RemovalOperation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.operations.RemovalOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.synchronization.operations.SyncOperation" title="hercules_sync.synchronization.operations.SyncOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.synchronization.operations.SyncOperation</span></code></a></p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.RemovalOperation._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.operations.RemovalOperation._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.RemovalOperation._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.operations.RemovalOperation._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.RemovalOperation._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.operations.RemovalOperation._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.RemovalOperation._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.operations.RemovalOperation._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.operations.RemovalOperation.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">triple_store: hercules_sync.triplestore.triplestore_manager.TripleStoreManager</em><span class="sig-paren">)</span> &#x2192; hercules_sync.triplestore.triplestore_manager.ModificationResult<a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#RemovalOperation.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.operations.RemovalOperation.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the operation in the given triple store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triple_store</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">TripleStoreManager</span></code>) – Instance of triple store manager</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result given by the TripleStoreManager after the modification.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>obj: <cite>ModificationResult</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.operations.SyncOperation">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.operations.</code><code class="sig-name descname">SyncOperation</code><span class="sig-paren">(</span><em class="sig-param">sub: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">pred: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">obj: hercules_sync.triplestore.triple_info.TripleElement</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#SyncOperation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.operations.SyncOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Base class of all synchronization operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sub</strong> (<a class="reference internal" href="hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.TripleElement" title="hercules_sync.triplestore.triple_info.TripleElement"><em>TripleElement</em></a>) – Subject of the triple to be synchronized.</p></li>
+<li><p><strong>pred</strong> (<a class="reference internal" href="hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.TripleElement" title="hercules_sync.triplestore.triple_info.TripleElement"><em>TripleElement</em></a>) – Predicate of the triple to be synchronized.</p></li>
+<li><p><strong>obj</strong> (<a class="reference internal" href="hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.TripleElement" title="hercules_sync.triplestore.triple_info.TripleElement"><em>TripleElement</em></a>) – Object of the triple to be synchronized.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.SyncOperation._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.operations.SyncOperation._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.SyncOperation._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.operations.SyncOperation._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.SyncOperation._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.operations.SyncOperation._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.operations.SyncOperation._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.operations.SyncOperation._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.operations.SyncOperation.execute">
+<em class="property">abstract </em><code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">triple_store: hercules_sync.triplestore.triplestore_manager.TripleStoreManager</em><span class="sig-paren">)</span> &#x2192; hercules_sync.triplestore.triplestore_manager.ModificationResult<a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#SyncOperation.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.operations.SyncOperation.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the operation in the given triple store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triple_store</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">TripleStoreManager</span></code>) – Instance of triple store manager</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result given by the TripleStoreManager after the modification.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>obj: <cite>ModificationResult</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-hercules_sync.synchronization">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hercules_sync.synchronization" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hercules_sync.synchronization.AdditionOperation">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.</code><code class="sig-name descname">AdditionOperation</code><span class="sig-paren">(</span><em class="sig-param">sub: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">pred: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">obj: hercules_sync.triplestore.triple_info.TripleElement</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#AdditionOperation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.AdditionOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.synchronization.operations.SyncOperation" title="hercules_sync.synchronization.operations.SyncOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.synchronization.operations.SyncOperation</span></code></a></p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.AdditionOperation._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.AdditionOperation._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.AdditionOperation._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.AdditionOperation._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.AdditionOperation._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.AdditionOperation._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.AdditionOperation._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.AdditionOperation._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.AdditionOperation.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">triple_store: hercules_sync.triplestore.triplestore_manager.TripleStoreManager</em><span class="sig-paren">)</span> &#x2192; hercules_sync.triplestore.triplestore_manager.ModificationResult<a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#AdditionOperation.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.AdditionOperation.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the operation in the given triple store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triple_store</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">TripleStoreManager</span></code>) – Instance of triple store manager</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result given by the TripleStoreManager after the modification.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>obj: <cite>ModificationResult</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.BaseSyncAlgorithm">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.</code><code class="sig-name descname">BaseSyncAlgorithm</code><a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#BaseSyncAlgorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.BaseSyncAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Base class for all synchronization algorithms.</p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.BaseSyncAlgorithm._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.BaseSyncAlgorithm._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.BaseSyncAlgorithm._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.BaseSyncAlgorithm._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.BaseSyncAlgorithm._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.BaseSyncAlgorithm._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.BaseSyncAlgorithm._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.BaseSyncAlgorithm._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.BaseSyncAlgorithm.do_algorithm">
+<em class="property">abstract </em><code class="sig-name descname">do_algorithm</code><span class="sig-paren">(</span><em class="sig-param">file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#BaseSyncAlgorithm.do_algorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.BaseSyncAlgorithm.do_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute internal algorithm and return the list of operations to execute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<cite>obj</cite>:GitFile) – GitFile object with information about the diff.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of operations that need to be executed to synchronize the file
+with the triplestore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="#hercules_sync.synchronization.SyncOperation" title="hercules_sync.synchronization.SyncOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SyncOperation</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.GraphDiffSyncAlgorithm">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.</code><code class="sig-name descname">GraphDiffSyncAlgorithm</code><a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#GraphDiffSyncAlgorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.GraphDiffSyncAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm" title="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.synchronization.algorithms.BaseSyncAlgorithm</span></code></a></p>
+<p>Implementation of the Graph diff algorithm to synchronize ontology sources.</p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.GraphDiffSyncAlgorithm._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.GraphDiffSyncAlgorithm._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.GraphDiffSyncAlgorithm._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.GraphDiffSyncAlgorithm._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.GraphDiffSyncAlgorithm._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.GraphDiffSyncAlgorithm._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.GraphDiffSyncAlgorithm._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.GraphDiffSyncAlgorithm._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.GraphDiffSyncAlgorithm._create_add_ops_from">
+<code class="sig-name descname">_create_add_ops_from</code><span class="sig-paren">(</span><em class="sig-param">graph: rdflib.graph.Graph</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.AdditionOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#GraphDiffSyncAlgorithm._create_add_ops_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.GraphDiffSyncAlgorithm._create_add_ops_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.GraphDiffSyncAlgorithm._create_remove_ops_from">
+<code class="sig-name descname">_create_remove_ops_from</code><span class="sig-paren">(</span><em class="sig-param">graph: rdflib.graph.Graph</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.RemovalOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#GraphDiffSyncAlgorithm._create_remove_ops_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.GraphDiffSyncAlgorithm._create_remove_ops_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.GraphDiffSyncAlgorithm.do_algorithm">
+<code class="sig-name descname">do_algorithm</code><span class="sig-paren">(</span><em class="sig-param">file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#GraphDiffSyncAlgorithm.do_algorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.GraphDiffSyncAlgorithm.do_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute internal algorithm and return the list of operations to execute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<cite>obj</cite>:GitFile) – GitFile object with information about the diff.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of operations that need to be executed to synchronize the file
+with the triplestore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="#hercules_sync.synchronization.SyncOperation" title="hercules_sync.synchronization.SyncOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SyncOperation</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.NaiveSyncAlgorithm">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.</code><code class="sig-name descname">NaiveSyncAlgorithm</code><a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#NaiveSyncAlgorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.NaiveSyncAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm" title="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.synchronization.algorithms.BaseSyncAlgorithm</span></code></a></p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.NaiveSyncAlgorithm._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.NaiveSyncAlgorithm._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.NaiveSyncAlgorithm._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.NaiveSyncAlgorithm._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.NaiveSyncAlgorithm._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.NaiveSyncAlgorithm._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.NaiveSyncAlgorithm._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.NaiveSyncAlgorithm._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.NaiveSyncAlgorithm.do_algorithm">
+<code class="sig-name descname">do_algorithm</code><span class="sig-paren">(</span><em class="sig-param">file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#NaiveSyncAlgorithm.do_algorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.NaiveSyncAlgorithm.do_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute internal algorithm and return the list of operations to execute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<cite>obj</cite>:GitFile) – GitFile object with information about the diff.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of operations that need to be executed to synchronize the file
+with the triplestore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="#hercules_sync.synchronization.SyncOperation" title="hercules_sync.synchronization.SyncOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SyncOperation</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.OntologySynchronizer">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.</code><code class="sig-name descname">OntologySynchronizer</code><span class="sig-paren">(</span><em class="sig-param">algorithm: hercules_sync.synchronization.algorithms.BaseSyncAlgorithm</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#OntologySynchronizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.OntologySynchronizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Processes information from a GitHub push event.</p>
+<p>This class uses a syncrhonization algorithm to return the list of operations
+that need to be execute to synchronize a GitFile and a given triplestore.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>algoritm</strong> (<a class="reference internal" href="#hercules_sync.synchronization.BaseSyncAlgorithm" title="hercules_sync.synchronization.BaseSyncAlgorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseSyncAlgorithm</span></code></a>) – Algorithm that conforms to the BaseSyncAlgorithm interface.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="hercules_sync.synchronization.OntologySynchronizer._annotate_triples">
+<code class="sig-name descname">_annotate_triples</code><span class="sig-paren">(</span><em class="sig-param">ops: List[hercules_sync.synchronization.operations.SyncOperation], file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#OntologySynchronizer._annotate_triples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.OntologySynchronizer._annotate_triples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.OntologySynchronizer.synchronize">
+<code class="sig-name descname">synchronize</code><span class="sig-paren">(</span><em class="sig-param">file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/ontology_synchronizer.html#OntologySynchronizer.synchronize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.OntologySynchronizer.synchronize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the algorithm to obtain the list of operations to execute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">GitFile</span></code>) – GitFile object with information about the ontology file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of operations that need to be executed to synchronize the file
+with the triplestore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="#hercules_sync.synchronization.SyncOperation" title="hercules_sync.synchronization.SyncOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SyncOperation</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.RDFSyncAlgorithm">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.</code><code class="sig-name descname">RDFSyncAlgorithm</code><a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#RDFSyncAlgorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.RDFSyncAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm" title="hercules_sync.synchronization.algorithms.BaseSyncAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.synchronization.algorithms.BaseSyncAlgorithm</span></code></a></p>
+<p>Implementation of the RDFSync algorithm to synchronize ontology sources.</p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.RDFSyncAlgorithm._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.RDFSyncAlgorithm._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.RDFSyncAlgorithm._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.RDFSyncAlgorithm._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.RDFSyncAlgorithm._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.RDFSyncAlgorithm._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.RDFSyncAlgorithm._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.RDFSyncAlgorithm._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.RDFSyncAlgorithm.do_algorithm">
+<code class="sig-name descname">do_algorithm</code><span class="sig-paren">(</span><em class="sig-param">file: hercules_sync.git.GitFile</em><span class="sig-paren">)</span> &#x2192; List[hercules_sync.synchronization.operations.SyncOperation]<a class="reference internal" href="../_modules/hercules_sync/synchronization/algorithms.html#RDFSyncAlgorithm.do_algorithm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.RDFSyncAlgorithm.do_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute internal algorithm and return the list of operations to execute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<cite>obj</cite>:GitFile) – GitFile object with information about the diff.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of operations that need to be executed to synchronize the file
+with the triplestore.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="#hercules_sync.synchronization.SyncOperation" title="hercules_sync.synchronization.SyncOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SyncOperation</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.RemovalOperation">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.</code><code class="sig-name descname">RemovalOperation</code><span class="sig-paren">(</span><em class="sig-param">sub: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">pred: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">obj: hercules_sync.triplestore.triple_info.TripleElement</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#RemovalOperation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.RemovalOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.synchronization.operations.SyncOperation" title="hercules_sync.synchronization.operations.SyncOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.synchronization.operations.SyncOperation</span></code></a></p>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.RemovalOperation._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.RemovalOperation._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.RemovalOperation._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.RemovalOperation._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.RemovalOperation._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.RemovalOperation._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.RemovalOperation._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.RemovalOperation._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.RemovalOperation.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">triple_store: hercules_sync.triplestore.triplestore_manager.TripleStoreManager</em><span class="sig-paren">)</span> &#x2192; hercules_sync.triplestore.triplestore_manager.ModificationResult<a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#RemovalOperation.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.RemovalOperation.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the operation in the given triple store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triple_store</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">TripleStoreManager</span></code>) – Instance of triple store manager</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result given by the TripleStoreManager after the modification.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>obj: <cite>ModificationResult</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hercules_sync.synchronization.SyncOperation">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.synchronization.</code><code class="sig-name descname">SyncOperation</code><span class="sig-paren">(</span><em class="sig-param">sub: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">pred: hercules_sync.triplestore.triple_info.TripleElement</em>, <em class="sig-param">obj: hercules_sync.triplestore.triple_info.TripleElement</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#SyncOperation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.SyncOperation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Base class of all synchronization operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sub</strong> (<a class="reference internal" href="hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.TripleElement" title="hercules_sync.triplestore.triple_info.TripleElement"><em>TripleElement</em></a>) – Subject of the triple to be synchronized.</p></li>
+<li><p><strong>pred</strong> (<a class="reference internal" href="hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.TripleElement" title="hercules_sync.triplestore.triple_info.TripleElement"><em>TripleElement</em></a>) – Predicate of the triple to be synchronized.</p></li>
+<li><p><strong>obj</strong> (<a class="reference internal" href="hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.TripleElement" title="hercules_sync.triplestore.triple_info.TripleElement"><em>TripleElement</em></a>) – Object of the triple to be synchronized.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.SyncOperation._abc_cache">
+<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.SyncOperation._abc_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.SyncOperation._abc_negative_cache">
+<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.SyncOperation._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.SyncOperation._abc_negative_cache_version">
+<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.synchronization.SyncOperation._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hercules_sync.synchronization.SyncOperation._abc_registry">
+<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.synchronization.SyncOperation._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.synchronization.SyncOperation.execute">
+<em class="property">abstract </em><code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">triple_store: hercules_sync.triplestore.triplestore_manager.TripleStoreManager</em><span class="sig-paren">)</span> &#x2192; hercules_sync.triplestore.triplestore_manager.ModificationResult<a class="reference internal" href="../_modules/hercules_sync/synchronization/operations.html#SyncOperation.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.synchronization.SyncOperation.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the operation in the given triple store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>triple_store</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">TripleStoreManager</span></code>) – Instance of triple store manager</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result given by the TripleStoreManager after the modification.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>obj: <cite>ModificationResult</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Web Semantics Oviedo
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
