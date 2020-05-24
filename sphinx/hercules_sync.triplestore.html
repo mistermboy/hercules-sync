@@ -155,6 +155,64 @@
 <div class="section" id="module-hercules_sync.triplestore.triple_info">
 <span id="hercules-sync-triplestore-triple-info-module"></span><h2>hercules_sync.triplestore.triple_info module<a class="headerlink" href="#module-hercules_sync.triplestore.triple_info" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="hercules_sync.triplestore.triple_info.AnonymousElement">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.triplestore.triple_info.</code><code class="sig-name descname">AnonymousElement</code><span class="sig-paren">(</span><em class="sig-param">uid: str</em>, <em class="sig-param">prefix: str = 'http://purl.org/hercules/asio/core#'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#AnonymousElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.triple_info.AnonymousElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.triplestore.triple_info.TripleElement" title="hercules_sync.triplestore.triple_info.TripleElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.triplestore.triple_info.TripleElement</span></code></a></p>
+<p>TripleElement class that represents blank nodes from a triple.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uid</strong> (<em>str</em>) – Generated uid of the element.</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="hercules_sync.triplestore.triple_info.AnonymousElement._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.AnonymousElement._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.triple_info.AnonymousElement.is_blank">
+<code class="sig-name descname">is_blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#AnonymousElement.is_blank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.triple_info.AnonymousElement.is_blank" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.triple_info.AnonymousElement.to_wdi_datatype">
+<code class="sig-name descname">to_wdi_datatype</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span> &#x2192; wikidataintegrator.wdi_core.WDItemID<a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#AnonymousElement.to_wdi_datatype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.triple_info.AnonymousElement.to_wdi_datatype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a wdi instance representing the current element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Instance of a wdi datatype that represents this TripeElement.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wikidataintegrator.wdi_core.WDBaseDataType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.triple_info.AnonymousElement.uri">
+<em class="property">property </em><code class="sig-name descname">uri</code><a class="headerlink" href="#hercules_sync.triplestore.triple_info.AnonymousElement.uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.triple_info.AnonymousElement.wdi_class">
+<em class="property">property </em><code class="sig-name descname">wdi_class</code><a class="headerlink" href="#hercules_sync.triplestore.triple_info.AnonymousElement.wdi_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the wikidataintegrator class of the element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.triple_info.AnonymousElement.wdi_dtype">
+<em class="property">property </em><code class="sig-name descname">wdi_dtype</code><a class="headerlink" href="#hercules_sync.triplestore.triple_info.AnonymousElement.wdi_dtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the wikidataintegrator DTYPE of this element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.triple_info.AnonymousElement.wdi_proptype">
+<em class="property">property </em><code class="sig-name descname">wdi_proptype</code><a class="headerlink" href="#hercules_sync.triplestore.triple_info.AnonymousElement.wdi_proptype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="hercules_sync.triplestore.triple_info.LiteralElement">
 <em class="property">class </em><code class="sig-prename descclassname">hercules_sync.triplestore.triple_info.</code><code class="sig-name descname">LiteralElement</code><span class="sig-paren">(</span><em class="sig-param">content</em>, <em class="sig-param">datatype=None</em>, <em class="sig-param">lang=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#LiteralElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.triple_info.LiteralElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hercules_sync.triplestore.triple_info.TripleElement" title="hercules_sync.triplestore.triple_info.TripleElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.triplestore.triple_info.TripleElement</span></code></a></p>
@@ -172,28 +230,18 @@
 </dd>
 </dl>
 <dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.LiteralElement._abc_cache">
-<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.LiteralElement._abc_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.LiteralElement._abc_negative_cache">
-<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.LiteralElement._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.LiteralElement._abc_negative_cache_version">
-<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.LiteralElement._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.LiteralElement._abc_registry">
-<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.LiteralElement._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="hercules_sync.triplestore.triple_info.LiteralElement._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.LiteralElement._abc_impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hercules_sync.triplestore.triple_info.LiteralElement._datatype_to_wdiobject">
 <code class="sig-name descname">_datatype_to_wdiobject</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span> &#x2192; wikidataintegrator.wdi_core.WDBaseDataType<a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#LiteralElement._datatype_to_wdiobject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.triple_info.LiteralElement._datatype_to_wdiobject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.triple_info.LiteralElement.is_literal">
+<code class="sig-name descname">is_literal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#LiteralElement.is_literal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.triple_info.LiteralElement.is_literal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -230,23 +278,8 @@
 <p>This abstract class represents the common behaviour exposed by an element
 of a semantic triple.</p>
 <dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.TripleElement._abc_cache">
-<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.TripleElement._abc_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.TripleElement._abc_negative_cache">
-<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.TripleElement._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.TripleElement._abc_negative_cache_version">
-<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.TripleElement._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.TripleElement._abc_registry">
-<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.TripleElement._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="hercules_sync.triplestore.triple_info.TripleElement._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.TripleElement._abc_impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -265,6 +298,16 @@ of a semantic triple.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.triple_info.TripleElement.is_blank">
+<code class="sig-name descname">is_blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#TripleElement.is_blank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.triple_info.TripleElement.is_blank" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.triple_info.TripleElement.is_literal">
+<code class="sig-name descname">is_literal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#TripleElement.is_literal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.triple_info.TripleElement.is_literal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="hercules_sync.triplestore.triple_info.TripleElement.is_uri">
@@ -343,23 +386,8 @@ of a semantic triple.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.URIElement._abc_cache">
-<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.URIElement._abc_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.URIElement._abc_negative_cache">
-<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.URIElement._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.URIElement._abc_negative_cache_version">
-<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.URIElement._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triple_info.URIElement._abc_registry">
-<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.URIElement._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="hercules_sync.triplestore.triple_info.URIElement._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triple_info.URIElement._abc_impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -438,23 +466,8 @@ allowed in wikibase.</p>
 <p>The methods of this class must be implemented by each specific triplestore
 adapter to allow the execution of SyncOperations on the triplestore.</p>
 <dl class="attribute">
-<dt id="hercules_sync.triplestore.triplestore_manager.TripleStoreManager._abc_cache">
-<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triplestore_manager.TripleStoreManager._abc_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triplestore_manager.TripleStoreManager._abc_negative_cache">
-<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triplestore_manager.TripleStoreManager._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triplestore_manager.TripleStoreManager._abc_negative_cache_version">
-<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.triplestore.triplestore_manager.TripleStoreManager._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.triplestore_manager.TripleStoreManager._abc_registry">
-<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triplestore_manager.TripleStoreManager._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="hercules_sync.triplestore.triplestore_manager.TripleStoreManager._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.triplestore_manager.TripleStoreManager._abc_impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -512,23 +525,8 @@ adapter to allow the execution of SyncOperations on the triplestore.</p>
 </dd>
 </dl>
 <dl class="attribute">
-<dt id="hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._abc_cache">
-<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._abc_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._abc_negative_cache">
-<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._abc_negative_cache_version">
-<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._abc_registry">
-<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._abc_impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -538,7 +536,7 @@ adapter to allow the execution of SyncOperations on the triplestore.</p>
 
 <dl class="method">
 <dt id="hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._create_new_wb_item">
-<code class="sig-name descname">_create_new_wb_item</code><span class="sig-paren">(</span><em class="sig-param">uriref: hercules_sync.triplestore.triple_info.URIElement</em>, <em class="sig-param">proptype: str</em><span class="sig-paren">)</span> &#x2192; hercules_sync.triplestore.triplestore_manager.ModificationResult<a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#WikibaseAdapter._create_new_wb_item"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._create_new_wb_item" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">_create_new_wb_item</code><span class="sig-paren">(</span><em class="sig-param">uriref: Union[hercules_sync.triplestore.triple_info.URIElement, hercules_sync.triplestore.triple_info.AnonymousElement], proptype: str</em><span class="sig-paren">)</span> &#x2192; hercules_sync.triplestore.triplestore_manager.ModificationResult<a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#WikibaseAdapter._create_new_wb_item"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._create_new_wb_item" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -553,7 +551,7 @@ adapter to allow the execution of SyncOperations on the triplestore.</p>
 
 <dl class="method">
 <dt id="hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._get_wb_id_of">
-<code class="sig-name descname">_get_wb_id_of</code><span class="sig-paren">(</span><em class="sig-param">uriref: hercules_sync.triplestore.triple_info.URIElement</em>, <em class="sig-param">proptype: str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#WikibaseAdapter._get_wb_id_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._get_wb_id_of" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">_get_wb_id_of</code><span class="sig-paren">(</span><em class="sig-param">uriref: Union[hercules_sync.triplestore.triple_info.URIElement, hercules_sync.triplestore.triple_info.AnonymousElement], proptype: str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#WikibaseAdapter._get_wb_id_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.WikibaseAdapter._get_wb_id_of" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -662,7 +660,7 @@ adapter to allow the execution of SyncOperations on the triplestore.</p>
 
 <dl class="function">
 <dt id="hercules_sync.triplestore.wikibase_adapter.is_asio_uri">
-<code class="sig-prename descclassname">hercules_sync.triplestore.wikibase_adapter.</code><code class="sig-name descname">is_asio_uri</code><span class="sig-paren">(</span><em class="sig-param">uriref: hercules_sync.triplestore.triple_info.URIElement</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#is_asio_uri"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.is_asio_uri" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hercules_sync.triplestore.wikibase_adapter.</code><code class="sig-name descname">is_asio_uri</code><span class="sig-paren">(</span><em class="sig-param">uriref: Union[hercules_sync.triplestore.triple_info.URIElement, hercules_sync.triplestore.triple_info.AnonymousElement]</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#is_asio_uri"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.is_asio_uri" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -672,12 +670,70 @@ adapter to allow the execution of SyncOperations on the triplestore.</p>
 
 <dl class="function">
 <dt id="hercules_sync.triplestore.wikibase_adapter.try_infer_label_from">
-<code class="sig-prename descclassname">hercules_sync.triplestore.wikibase_adapter.</code><code class="sig-name descname">try_infer_label_from</code><span class="sig-paren">(</span><em class="sig-param">uriref: hercules_sync.triplestore.triple_info.URIElement</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#try_infer_label_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.try_infer_label_from" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hercules_sync.triplestore.wikibase_adapter.</code><code class="sig-name descname">try_infer_label_from</code><span class="sig-paren">(</span><em class="sig-param">uriref: Union[hercules_sync.triplestore.triple_info.URIElement, hercules_sync.triplestore.triple_info.AnonymousElement]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#try_infer_label_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.wikibase_adapter.try_infer_label_from" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-hercules_sync.triplestore">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hercules_sync.triplestore" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hercules_sync.triplestore.AnonymousElement">
+<em class="property">class </em><code class="sig-prename descclassname">hercules_sync.triplestore.</code><code class="sig-name descname">AnonymousElement</code><span class="sig-paren">(</span><em class="sig-param">uid: str</em>, <em class="sig-param">prefix: str = 'http://purl.org/hercules/asio/core#'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#AnonymousElement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.AnonymousElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hercules_sync.triplestore.triple_info.TripleElement" title="hercules_sync.triplestore.triple_info.TripleElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">hercules_sync.triplestore.triple_info.TripleElement</span></code></a></p>
+<p>TripleElement class that represents blank nodes from a triple.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uid</strong> (<em>str</em>) – Generated uid of the element.</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="hercules_sync.triplestore.AnonymousElement._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.AnonymousElement._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.AnonymousElement.is_blank">
+<code class="sig-name descname">is_blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#AnonymousElement.is_blank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.AnonymousElement.is_blank" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.AnonymousElement.to_wdi_datatype">
+<code class="sig-name descname">to_wdi_datatype</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span> &#x2192; wikidataintegrator.wdi_core.WDItemID<a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#AnonymousElement.to_wdi_datatype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.AnonymousElement.to_wdi_datatype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a wdi instance representing the current element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Instance of a wdi datatype that represents this TripeElement.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">wikidataintegrator.wdi_core.WDBaseDataType</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.AnonymousElement.uri">
+<em class="property">property </em><code class="sig-name descname">uri</code><a class="headerlink" href="#hercules_sync.triplestore.AnonymousElement.uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.AnonymousElement.wdi_class">
+<em class="property">property </em><code class="sig-name descname">wdi_class</code><a class="headerlink" href="#hercules_sync.triplestore.AnonymousElement.wdi_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the wikidataintegrator class of the element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.AnonymousElement.wdi_dtype">
+<em class="property">property </em><code class="sig-name descname">wdi_dtype</code><a class="headerlink" href="#hercules_sync.triplestore.AnonymousElement.wdi_dtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the wikidataintegrator DTYPE of this element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.AnonymousElement.wdi_proptype">
+<em class="property">property </em><code class="sig-name descname">wdi_proptype</code><a class="headerlink" href="#hercules_sync.triplestore.AnonymousElement.wdi_proptype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="class">
 <dt id="hercules_sync.triplestore.ModificationResult">
 <em class="property">class </em><code class="sig-prename descclassname">hercules_sync.triplestore.</code><code class="sig-name descname">ModificationResult</code><span class="sig-paren">(</span><em class="sig-param">successful: bool</em>, <em class="sig-param">message: str = ''</em>, <em class="sig-param">res=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triplestore_manager.html#ModificationResult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.ModificationResult" title="Permalink to this definition">¶</a></dt>
@@ -692,23 +748,8 @@ adapter to allow the execution of SyncOperations on the triplestore.</p>
 <p>The methods of this class must be implemented by each specific triplestore
 adapter to allow the execution of SyncOperations on the triplestore.</p>
 <dl class="attribute">
-<dt id="hercules_sync.triplestore.TripleStoreManager._abc_cache">
-<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.TripleStoreManager._abc_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.TripleStoreManager._abc_negative_cache">
-<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.TripleStoreManager._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.TripleStoreManager._abc_negative_cache_version">
-<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.triplestore.TripleStoreManager._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.TripleStoreManager._abc_registry">
-<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.TripleStoreManager._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="hercules_sync.triplestore.TripleStoreManager._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.TripleStoreManager._abc_impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -790,23 +831,8 @@ adapter to allow the execution of SyncOperations on the triplestore.</p>
 <p>This abstract class represents the common behaviour exposed by an element
 of a semantic triple.</p>
 <dl class="attribute">
-<dt id="hercules_sync.triplestore.TripleElement._abc_cache">
-<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.TripleElement._abc_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.TripleElement._abc_negative_cache">
-<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.TripleElement._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.TripleElement._abc_negative_cache_version">
-<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.triplestore.TripleElement._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.TripleElement._abc_registry">
-<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.TripleElement._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="hercules_sync.triplestore.TripleElement._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.TripleElement._abc_impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -825,6 +851,16 @@ of a semantic triple.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.TripleElement.is_blank">
+<code class="sig-name descname">is_blank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#TripleElement.is_blank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.TripleElement.is_blank" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.TripleElement.is_literal">
+<code class="sig-name descname">is_literal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#TripleElement.is_literal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.TripleElement.is_literal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="hercules_sync.triplestore.TripleElement.is_uri">
@@ -868,23 +904,8 @@ of a semantic triple.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="hercules_sync.triplestore.URIElement._abc_cache">
-<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.URIElement._abc_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.URIElement._abc_negative_cache">
-<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.URIElement._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.URIElement._abc_negative_cache_version">
-<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.triplestore.URIElement._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.URIElement._abc_registry">
-<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.URIElement._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="hercules_sync.triplestore.URIElement._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.URIElement._abc_impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -964,28 +985,18 @@ allowed in wikibase.</p>
 </dd>
 </dl>
 <dl class="attribute">
-<dt id="hercules_sync.triplestore.LiteralElement._abc_cache">
-<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.LiteralElement._abc_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.LiteralElement._abc_negative_cache">
-<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.LiteralElement._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.LiteralElement._abc_negative_cache_version">
-<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.triplestore.LiteralElement._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.LiteralElement._abc_registry">
-<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.LiteralElement._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="hercules_sync.triplestore.LiteralElement._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.LiteralElement._abc_impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hercules_sync.triplestore.LiteralElement._datatype_to_wdiobject">
 <code class="sig-name descname">_datatype_to_wdiobject</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span> &#x2192; wikidataintegrator.wdi_core.WDBaseDataType<a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#LiteralElement._datatype_to_wdiobject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.LiteralElement._datatype_to_wdiobject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hercules_sync.triplestore.LiteralElement.is_literal">
+<code class="sig-name descname">is_literal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/triple_info.html#LiteralElement.is_literal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.LiteralElement.is_literal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1030,23 +1041,8 @@ allowed in wikibase.</p>
 </dd>
 </dl>
 <dl class="attribute">
-<dt id="hercules_sync.triplestore.WikibaseAdapter._abc_cache">
-<code class="sig-name descname">_abc_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.WikibaseAdapter._abc_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.WikibaseAdapter._abc_negative_cache">
-<code class="sig-name descname">_abc_negative_cache</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.WikibaseAdapter._abc_negative_cache" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.WikibaseAdapter._abc_negative_cache_version">
-<code class="sig-name descname">_abc_negative_cache_version</code><em class="property"> = 46</em><a class="headerlink" href="#hercules_sync.triplestore.WikibaseAdapter._abc_negative_cache_version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="hercules_sync.triplestore.WikibaseAdapter._abc_registry">
-<code class="sig-name descname">_abc_registry</code><em class="property"> = &lt;_weakrefset.WeakSet object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.WikibaseAdapter._abc_registry" title="Permalink to this definition">¶</a></dt>
+<dt id="hercules_sync.triplestore.WikibaseAdapter._abc_impl">
+<code class="sig-name descname">_abc_impl</code><em class="property"> = &lt;_abc_data object&gt;</em><a class="headerlink" href="#hercules_sync.triplestore.WikibaseAdapter._abc_impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1056,7 +1052,7 @@ allowed in wikibase.</p>
 
 <dl class="method">
 <dt id="hercules_sync.triplestore.WikibaseAdapter._create_new_wb_item">
-<code class="sig-name descname">_create_new_wb_item</code><span class="sig-paren">(</span><em class="sig-param">uriref: hercules_sync.triplestore.triple_info.URIElement</em>, <em class="sig-param">proptype: str</em><span class="sig-paren">)</span> &#x2192; hercules_sync.triplestore.triplestore_manager.ModificationResult<a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#WikibaseAdapter._create_new_wb_item"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.WikibaseAdapter._create_new_wb_item" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">_create_new_wb_item</code><span class="sig-paren">(</span><em class="sig-param">uriref: Union[hercules_sync.triplestore.triple_info.URIElement, hercules_sync.triplestore.triple_info.AnonymousElement], proptype: str</em><span class="sig-paren">)</span> &#x2192; hercules_sync.triplestore.triplestore_manager.ModificationResult<a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#WikibaseAdapter._create_new_wb_item"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.WikibaseAdapter._create_new_wb_item" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1071,7 +1067,7 @@ allowed in wikibase.</p>
 
 <dl class="method">
 <dt id="hercules_sync.triplestore.WikibaseAdapter._get_wb_id_of">
-<code class="sig-name descname">_get_wb_id_of</code><span class="sig-paren">(</span><em class="sig-param">uriref: hercules_sync.triplestore.triple_info.URIElement</em>, <em class="sig-param">proptype: str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#WikibaseAdapter._get_wb_id_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.WikibaseAdapter._get_wb_id_of" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">_get_wb_id_of</code><span class="sig-paren">(</span><em class="sig-param">uriref: Union[hercules_sync.triplestore.triple_info.URIElement, hercules_sync.triplestore.triple_info.AnonymousElement], proptype: str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/triplestore/wikibase_adapter.html#WikibaseAdapter._get_wb_id_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.triplestore.WikibaseAdapter._get_wb_id_of" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
