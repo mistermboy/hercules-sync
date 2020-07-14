@@ -159,6 +159,7 @@
 <span class="kn">from</span> <span class="nn">hercules_sync.triplestore</span> <span class="kn">import</span> <span class="n">TripleInfo</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">AdditionOperation</span><span class="p">,</span> <span class="n">RemovalOperation</span><span class="p">,</span> <span class="n">SyncOperation</span>
 
+
 <div class="viewcode-block" id="BaseSyncAlgorithm"><a class="viewcode-back" href="../../../sphinx/hercules_sync.synchronization.html#hercules_sync.synchronization.algorithms.BaseSyncAlgorithm">[docs]</a><span class="k">class</span> <span class="nc">BaseSyncAlgorithm</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Base class for all synchronization algorithms.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -179,9 +180,11 @@
 <span class="sd">            with the triplestore.</span>
 <span class="sd">        &quot;&quot;&quot;</span></div></div>
 
+
 <div class="viewcode-block" id="NaiveSyncAlgorithm"><a class="viewcode-back" href="../../../sphinx/hercules_sync.synchronization.html#hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm">[docs]</a><span class="k">class</span> <span class="nc">NaiveSyncAlgorithm</span><span class="p">(</span><span class="n">BaseSyncAlgorithm</span><span class="p">):</span>
 <div class="viewcode-block" id="NaiveSyncAlgorithm.do_algorithm"><a class="viewcode-back" href="../../../sphinx/hercules_sync.synchronization.html#hercules_sync.synchronization.algorithms.NaiveSyncAlgorithm.do_algorithm">[docs]</a>    <span class="k">def</span> <span class="nf">do_algorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">GitFile</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">SyncOperation</span><span class="p">]:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;NaiveSync algorithm has not been implemented yet.&quot;</span><span class="p">)</span></div></div>
+
 
 <div class="viewcode-block" id="GraphDiffSyncAlgorithm"><a class="viewcode-back" href="../../../sphinx/hercules_sync.synchronization.html#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm">[docs]</a><span class="k">class</span> <span class="nc">GraphDiffSyncAlgorithm</span><span class="p">(</span><span class="n">BaseSyncAlgorithm</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Implementation of the Graph diff algorithm to synchronize ontology sources.</span>
@@ -198,13 +201,14 @@
         <span class="n">removals_ops</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_remove_ops_from</span><span class="p">(</span><span class="n">removals_graph</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">removals_ops</span> <span class="o">+</span> <span class="n">additions_ops</span></div>
 
-<div class="viewcode-block" id="GraphDiffSyncAlgorithm._create_add_ops_from"><a class="viewcode-back" href="../../../sphinx/hercules_sync.synchronization.html#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._create_add_ops_from">[docs]</a>    <span class="k">def</span> <span class="nf">_create_add_ops_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">AdditionOperation</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">_create_add_ops_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">AdditionOperation</span><span class="p">]:</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">AdditionOperation</span><span class="p">(</span><span class="o">*</span><span class="n">TripleInfo</span><span class="o">.</span><span class="n">from_rdflib</span><span class="p">(</span><span class="n">triple</span><span class="p">)</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">triple</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_create_remove_ops_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RemovalOperation</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">RemovalOperation</span><span class="p">(</span><span class="o">*</span><span class="n">TripleInfo</span><span class="o">.</span><span class="n">from_rdflib</span><span class="p">(</span><span class="n">triple</span><span class="p">)</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">triple</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="GraphDiffSyncAlgorithm._create_remove_ops_from"><a class="viewcode-back" href="../../../sphinx/hercules_sync.synchronization.html#hercules_sync.synchronization.algorithms.GraphDiffSyncAlgorithm._create_remove_ops_from">[docs]</a>    <span class="k">def</span> <span class="nf">_create_remove_ops_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">RemovalOperation</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">RemovalOperation</span><span class="p">(</span><span class="o">*</span><span class="n">TripleInfo</span><span class="o">.</span><span class="n">from_rdflib</span><span class="p">(</span><span class="n">triple</span><span class="p">)</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">triple</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">]</span></div></div>
 
 <div class="viewcode-block" id="RDFSyncAlgorithm"><a class="viewcode-back" href="../../../sphinx/hercules_sync.synchronization.html#hercules_sync.synchronization.algorithms.RDFSyncAlgorithm">[docs]</a><span class="k">class</span> <span class="nc">RDFSyncAlgorithm</span><span class="p">(</span><span class="n">BaseSyncAlgorithm</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Implementation of the RDFSync algorithm to synchronize ontology sources.</span>

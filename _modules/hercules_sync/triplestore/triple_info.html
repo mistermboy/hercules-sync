@@ -264,6 +264,7 @@
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;AnonymousElement: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="si">}</span><span class="s2">&quot;</span></div>
 
+
 <div class="viewcode-block" id="URIElement"><a class="viewcode-back" href="../../../sphinx/hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.URIElement">[docs]</a><span class="k">class</span> <span class="nc">URIElement</span><span class="p">(</span><span class="n">TripleElement</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; TripleElement class that represents URIs from a triple.</span>
 
@@ -340,11 +341,15 @@
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">uri</span> <span class="o">==</span> <span class="n">val</span>
 
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="p">)</span>
+
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;URIElement: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="si">}</span><span class="s2"> - Type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">etype</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
 
 <div class="viewcode-block" id="LiteralElement"><a class="viewcode-back" href="../../../sphinx/hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.LiteralElement">[docs]</a><span class="k">class</span> <span class="nc">LiteralElement</span><span class="p">(</span><span class="n">TripleElement</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; TripleElement class that represents a literal from a triple.</span>
@@ -395,11 +400,12 @@
 <div class="viewcode-block" id="LiteralElement.is_literal"><a class="viewcode-back" href="../../../sphinx/hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.LiteralElement.is_literal">[docs]</a>    <span class="k">def</span> <span class="nf">is_literal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="LiteralElement._datatype_to_wdiobject"><a class="viewcode-back" href="../../../sphinx/hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.LiteralElement._datatype_to_wdiobject">[docs]</a>    <span class="k">def</span> <span class="nf">_datatype_to_wdiobject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WDBaseDataType</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_datatype_to_wdiobject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WDBaseDataType</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">datatype</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">datatype2wdiobject</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Datatype </span><span class="si">%s</span><span class="s2"> is not supported, defaulting to string...&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">datatype</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span>
             <span class="k">return</span> <span class="n">WDString</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">datatype2wdiobject</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">datatype</span><span class="p">)](</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">datatype2wdiobject</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">datatype</span><span class="p">)](</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">LiteralElement</span><span class="p">):</span>
@@ -415,6 +421,7 @@
             <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; - DataType: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">datatype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
 
+
 <div class="viewcode-block" id="TripleInfo"><a class="viewcode-back" href="../../../sphinx/hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.TripleInfo">[docs]</a><span class="k">class</span> <span class="nc">TripleInfo</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot; Encapsulate the elements of a semantic triple.</span>
 
@@ -428,17 +435,19 @@
 <span class="sd">        Object of the triple.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sub</span><span class="p">:</span> <span class="n">TripleElement</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">TripleElement</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">TripleElement</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sub</span><span class="p">:</span> <span class="n">TripleElement</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">TripleElement</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">TripleElement</span><span class="p">,</span>
+                 <span class="n">isAdded</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">subject</span> <span class="o">=</span> <span class="n">sub</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">predicate</span> <span class="o">=</span> <span class="n">pred</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">object</span> <span class="o">=</span> <span class="n">obj</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isAdded</span> <span class="o">=</span> <span class="n">isAdded</span>
 
 <div class="viewcode-block" id="TripleInfo.from_rdflib"><a class="viewcode-back" href="../../../sphinx/hercules_sync.triplestore.html#hercules_sync.triplestore.triple_info.TripleInfo.from_rdflib">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">from_rdflib</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rdflib_triple</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">from_rdflib</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rdflib_triple</span><span class="p">,</span> <span class="n">isAdded</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="n">subject</span> <span class="o">=</span> <span class="n">TripleElement</span><span class="o">.</span><span class="n">from_rdflib</span><span class="p">(</span><span class="n">rdflib_triple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">predicate</span> <span class="o">=</span> <span class="n">TripleElement</span><span class="o">.</span><span class="n">from_rdflib</span><span class="p">(</span><span class="n">rdflib_triple</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">objct</span> <span class="o">=</span> <span class="n">TripleElement</span><span class="o">.</span><span class="n">from_rdflib</span><span class="p">(</span><span class="n">rdflib_triple</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">TripleInfo</span><span class="p">(</span><span class="n">subject</span><span class="p">,</span> <span class="n">predicate</span><span class="p">,</span> <span class="n">objct</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">TripleInfo</span><span class="p">(</span><span class="n">subject</span><span class="p">,</span> <span class="n">predicate</span><span class="p">,</span> <span class="n">objct</span><span class="p">,</span> <span class="n">isAdded</span><span class="p">)</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -456,7 +465,7 @@
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">subject</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">predicate</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">predicate</span> \
-               <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">object</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">object</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">object</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">object</span>
 
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>

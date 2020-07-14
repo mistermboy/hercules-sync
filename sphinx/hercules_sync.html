@@ -149,6 +149,43 @@
             
   <div class="section" id="hercules-sync-package">
 <h1>hercules_sync package<a class="headerlink" href="#hercules-sync-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hercules_sync.external.html">hercules_sync.external package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.external.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.external.html#module-hercules_sync.external.uri_factory_mock">hercules_sync.external.uri_factory_mock module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.external.html#module-hercules_sync.external">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hercules_sync.synchronization.html">hercules_sync.synchronization package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.synchronization.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.synchronization.html#module-hercules_sync.synchronization.algorithms">hercules_sync.synchronization.algorithms module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.synchronization.html#module-hercules_sync.synchronization.ontology_synchronizer">hercules_sync.synchronization.ontology_synchronizer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.synchronization.html#module-hercules_sync.synchronization.operations">hercules_sync.synchronization.operations module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.synchronization.html#module-hercules_sync.synchronization">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hercules_sync.triplestore.html">hercules_sync.triplestore package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.triplestore.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.triplestore.html#module-hercules_sync.triplestore.triple_info">hercules_sync.triplestore.triple_info module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.triplestore.html#module-hercules_sync.triplestore.triplestore_manager">hercules_sync.triplestore.triplestore_manager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.triplestore.html#module-hercules_sync.triplestore.wikibase_adapter">hercules_sync.triplestore.wikibase_adapter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.triplestore.html#module-hercules_sync.triplestore">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hercules_sync.util.html">hercules_sync.util package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.util.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.util.html#module-hercules_sync.util.error">hercules_sync.util.error module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.util.html#module-hercules_sync.util.mappings">hercules_sync.util.mappings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.util.html#module-hercules_sync.util.uri_constants">hercules_sync.util.uri_constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hercules_sync.util.html#module-hercules_sync.util">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -251,13 +288,14 @@ form ‘user_name/repo_name’).</p></li>
 <dl class="method">
 <dt id="hercules_sync.git.GitFile.added_lines">
 <em class="property">property </em><code class="sig-name descname">added_lines</code><a class="headerlink" href="#hercules_sync.git.GitFile.added_lines" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>returns: List of tuples where each tuple contains the content of the added</dt><dd><p>line and the number of the line in the target file.</p>
-</dd>
-</dl>
+<dd><p>Return the list of added lines from the file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list of (str, int)</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of tuples where each tuple contains the content of the added
+line and the number of the line in the target file.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of (str, int)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -270,13 +308,14 @@ form ‘user_name/repo_name’).</p></li>
 <dl class="method">
 <dt id="hercules_sync.git.GitFile.removed_lines">
 <em class="property">property </em><code class="sig-name descname">removed_lines</code><a class="headerlink" href="#hercules_sync.git.GitFile.removed_lines" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>returns: List of tuples where each tuple contains the content of the removed</dt><dd><p>line and the number of the line in the source file.</p>
-</dd>
-</dl>
+<dd><p>Return the list of removed lines from the file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list of (str, int)</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of tuples where each tuple contains the content of the removed
+line and the number of the line in the source file.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list of (str, int)</p>
 </dd>
 </dl>
 </dd></dl>
