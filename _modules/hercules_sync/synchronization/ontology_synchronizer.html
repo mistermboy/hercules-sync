@@ -153,7 +153,7 @@
 <span class="kn">from</span> <span class="nn">hercules_sync.git</span> <span class="kn">import</span> <span class="n">GitFile</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">BaseSyncAlgorithm</span><span class="p">,</span> <span class="n">NaiveSyncAlgorithm</span><span class="p">,</span> <span class="n">SyncOperation</span>
 <span class="kn">from</span> <span class="nn">..triplestore</span> <span class="kn">import</span> <span class="n">URIElement</span>
-<span class="kn">from</span> <span class="nn">..util.uri_constants</span> <span class="kn">import</span> <span class="n">ASIO_BASE</span>
+<span class="kn">from</span> <span class="nn">..util.uri_constants</span> <span class="kn">import</span> <span class="n">ASIO_BASE</span><span class="p">,</span> <span class="n">XSD_BASE</span>
 
 <span class="kn">import</span> <span class="nn">ontospy</span>
 
@@ -207,6 +207,9 @@
             <span class="k">if</span> <span class="n">urielement</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">uri</span><span class="p">):</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">ranges</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="n">urielement</span><span class="o">.</span><span class="n">proptype</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">uri</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># default type for datatype properties without range</span>
+                    <span class="n">urielement</span><span class="o">.</span><span class="n">proptype</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">XSD_BASE</span><span class="si">}</span><span class="s1">string&#39;</span>
 
 <span class="k">def</span> <span class="nf">_annotate_object_props</span><span class="p">(</span><span class="n">all_urielements</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">URIElement</span><span class="p">],</span> <span class="n">source_model</span><span class="p">,</span> <span class="n">target_model</span><span class="p">):</span>
     <span class="n">object_properties</span> <span class="o">=</span> <span class="n">source_model</span><span class="o">.</span><span class="n">all_properties_object</span> <span class="o">+</span> <span class="n">target_model</span><span class="o">.</span><span class="n">all_properties_object</span>
