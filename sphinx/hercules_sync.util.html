@@ -152,59 +152,17 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-hercules_sync.util.error">
-<span id="hercules-sync-util-error-module"></span><h2>hercules_sync.util.error module<a class="headerlink" href="#module-hercules_sync.util.error" title="Permalink to this headline">¶</a></h2>
-<dl class="exception">
-<dt id="hercules_sync.util.error.InvalidArgumentError">
-<em class="property">exception </em><code class="sig-prename descclassname">hercules_sync.util.error.</code><code class="sig-name descname">InvalidArgumentError</code><a class="reference internal" href="../_modules/hercules_sync/util/error.html#InvalidArgumentError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.util.error.InvalidArgumentError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-</dd></dl>
-
-<dl class="exception">
-<dt id="hercules_sync.util.error.InvalidConfigError">
-<em class="property">exception </em><code class="sig-prename descclassname">hercules_sync.util.error.</code><code class="sig-name descname">InvalidConfigError</code><a class="reference internal" href="../_modules/hercules_sync/util/error.html#InvalidConfigError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.util.error.InvalidConfigError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-</dd></dl>
-
+<div class="section" id="hercules-sync-util-error-module">
+<h2>hercules_sync.util.error module<a class="headerlink" href="#hercules-sync-util-error-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-hercules_sync.util.mappings">
-<span id="hercules-sync-util-mappings-module"></span><h2>hercules_sync.util.mappings module<a class="headerlink" href="#module-hercules_sync.util.mappings" title="Permalink to this headline">¶</a></h2>
-<p>Module to provide mappings between different datatypes in XSD and their wdi representation.</p>
-<dl class="function">
-<dt id="hercules_sync.util.mappings.create_geo_coordinate_from">
-<code class="sig-prename descclassname">hercules_sync.util.mappings.</code><code class="sig-name descname">create_geo_coordinate_from</code><span class="sig-paren">(</span><em class="sig-param">content: str</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span> &#x2192; wikidataintegrator.wdi_core.WDGlobeCoordinate<a class="reference internal" href="../_modules/hercules_sync/util/mappings.html#create_geo_coordinate_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.util.mappings.create_geo_coordinate_from" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a WDGlobecoordinate object from the point representation in a str.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="hercules_sync.util.mappings.create_wditemid_from_bool">
-<code class="sig-prename descclassname">hercules_sync.util.mappings.</code><code class="sig-name descname">create_wditemid_from_bool</code><span class="sig-paren">(</span><em class="sig-param">content</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hercules_sync/util/mappings.html#create_wditemid_from_bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.util.mappings.create_wditemid_from_bool" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="hercules_sync.util.mappings.create_wdquantity">
-<code class="sig-prename descclassname">hercules_sync.util.mappings.</code><code class="sig-name descname">create_wdquantity</code><span class="sig-paren">(</span><em class="sig-param">content</em>, <em class="sig-param">upper_bound=None</em>, <em class="sig-param">lower_bound=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span> &#x2192; wikidataintegrator.wdi_core.WDQuantity<a class="reference internal" href="../_modules/hercules_sync/util/mappings.html#create_wdquantity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.util.mappings.create_wdquantity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a WDQantity object from a number value and its bounds.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="hercules_sync.util.mappings.create_wdstring">
-<code class="sig-prename descclassname">hercules_sync.util.mappings.</code><code class="sig-name descname">create_wdstring</code><span class="sig-paren">(</span><em class="sig-param">content: str</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span> &#x2192; wikidataintegrator.wdi_core.WDString<a class="reference internal" href="../_modules/hercules_sync/util/mappings.html#create_wdstring"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.util.mappings.create_wdstring" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a WDString object from a given string.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="hercules_sync.util.mappings.create_wdtime">
-<code class="sig-prename descclassname">hercules_sync.util.mappings.</code><code class="sig-name descname">create_wdtime</code><span class="sig-paren">(</span><em class="sig-param">content: Union[datetime.date, datetime.time], **kwargs</em><span class="sig-paren">)</span> &#x2192; wikidataintegrator.wdi_core.WDTime<a class="reference internal" href="../_modules/hercules_sync/util/mappings.html#create_wdtime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hercules_sync.util.mappings.create_wdtime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a WDTime object from a given datetime object.</p>
-</dd></dl>
-
+<div class="section" id="hercules-sync-util-mappings-module">
+<h2>hercules_sync.util.mappings module<a class="headerlink" href="#hercules-sync-util-mappings-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-hercules_sync.util.uri_constants">
-<span id="hercules-sync-util-uri-constants-module"></span><h2>hercules_sync.util.uri_constants module<a class="headerlink" href="#module-hercules_sync.util.uri_constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hercules-sync-util-uri-constants-module">
+<h2>hercules_sync.util.uri_constants module<a class="headerlink" href="#hercules-sync-util-uri-constants-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-hercules_sync.util">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hercules_sync.util" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

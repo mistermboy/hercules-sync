@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python Module Index &mdash; hercules_sync  documentation</title>
+  <title>Testing BDD con Cucumber &mdash; hercules_sync  documentation</title>
   
 
   
@@ -34,10 +34,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
- 
-
-
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -131,10 +128,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Python Module Index</li>
+      <li>Testing BDD con Cucumber</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/testing.md.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -146,34 +147,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-   <h1>Python Module Index</h1>
-
-   <div class="modindex-jumpbox">
-   <a href="#cap-h"><strong>h</strong></a>
-   </div>
-
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-h"><td></td><td>
-       <strong>h</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-       <td>
-       <a href="sphinx/hercules_sync.html#module-hercules_sync"><code class="xref">hercules_sync</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="sphinx/hercules_sync.html#module-hercules_sync.git"><code class="xref">hercules_sync.git</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="sphinx/hercules_sync.html#module-hercules_sync.webhook"><code class="xref">hercules_sync.webhook</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+  <p><img alt="../images/logos_feder.png" src="../images/logos_feder.png" /></p>
+<div class="section" id="testing-bdd-con-cucumber">
+<h1>Testing BDD con Cucumber<a class="headerlink" href="#testing-bdd-con-cucumber" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configuracion-del-entorno">
+<h2>Configuración del entorno<a class="headerlink" href="#configuracion-del-entorno" title="Permalink to this headline">¶</a></h2>
+<p>Ver documento <a class="reference external" href="https://github.com/HerculesCRUE/ib-asio-docs-/blob/master/common/testing/testing">README</a> para la configuración de los tests.</p>
+</div>
+<div class="section" id="escenarios">
+<h2>Escenarios<a class="headerlink" href="#escenarios" title="Permalink to this headline">¶</a></h2>
+<p>A continuación se describen los escenarios probados, utilizando el framework <a class="reference external" href="https://cucumber.io/docs/cucumber/">Cucumber</a>.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Feature</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../tests/features/change_triplestore.feature"><code>change_triplestore.feature</code></a></td>
+<td>Caso de uso donde se comprueba que el sistema funciona con distintos triplestores.</td>
+</tr>
+<tr>
+<td><a href="../tests/features/synchronize_rdf.feature"><code>synchronize_rdf.feature</code></a></td>
+<td>Caso de uso donde se comprueba que el sistema es capaz de propagar los cambios que se realicen en la ontología al triple store elegido. En este caso wikibase.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
 
 
            </div>
